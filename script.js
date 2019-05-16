@@ -10,9 +10,9 @@
         this.inputTitle = inputTitle;
         this.contentInput = contentInput;
       }
-      get Values{
+     /*s get Values{
         
-      }
+      }*/
     }
     //elements
     const dialog = document.createElement('dialog');
@@ -51,6 +51,12 @@
     form.appendChild(closeBtn);
     dialog.appendChild(form);
     container.appendChild(dialog);
+
+    //events
+    deleteBtn.addEventListener('click', function(){
+      event.preventDefault();
+      document.removeChild(dialog); 
+    });
   }
 
   function list( newNote){
