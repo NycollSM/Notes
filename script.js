@@ -1,19 +1,11 @@
 (function(){
   const createBtn = document.getElementById('createBtn');
 
+  const Data = [];
+
   function newNote(){
     //disable button
     createBtn.setAttribute('disabled', true);
-
-    class Note{
-      constructor (inputTitle, contentInput){
-        this.inputTitle = inputTitle;
-        this.contentInput = contentInput;
-      }
-     /*s get Values{
-        
-      }*/
-    }
     //elements
     const dialog = document.createElement('dialog');
     dialog.setAttribute('open', open);
@@ -52,19 +44,38 @@
     dialog.appendChild(form);
     container.appendChild(dialog);
 
-    //events
+    function getValues (){
+      event.preventDefault();
+      
+      let Note = {
+        title : inputTitle.value,
+        description : contentInput.value,
+        date : null, 
+        id : null
+      }
+      console.log(Note);
+      Data.push(Note);
+      return Note;
+    } 
+
+    //events 
+    saveBtn.addEventListener('click', getValues);
+    //close the dialog 
     deleteBtn.addEventListener('click', function(){
       event.preventDefault();
-      document.removeChild(dialog); 
+      dialog.close(); 
     });
   }
 
-  function list( newNote){
-  const listContainer = document.getElementById('list');
-  //const prueba = newNote(dialog);
-  //console.log(prueba);
+  function list(){
+    const listContainer = document.getElementById('list');
+   for (let item of Data){
+      const title = document.createElement('li');
+      title.innerText = item.title;
+      console.log(title);
+      listContainer.appendChild(title);
+    }
   } list();
-
 
   createBtn.addEventListener('click', newNote);
 })();
