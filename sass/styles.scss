@@ -1,0 +1,33 @@
+$font: 'Poppins', sans-serif;
+html{
+    font-family: $font;
+}
+dialog{
+    height: 80vh;
+    width: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+input{
+    width: 100%;
+    display: block;
+}
+label{
+    text-align: center;
+    padding: 2px;
+}
+ul{
+    width: 40%;
+}
+li{
+    text-align: center;
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px rgb(167, 0, 0) solid;
+}
+button{
+    font-family: $font;
+    padding: 3px;
+    width: 70px;
+}

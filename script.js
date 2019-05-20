@@ -46,36 +46,43 @@
 
     function getValues (){
       event.preventDefault();
-      
       let Note = {
         title : inputTitle.value,
         description : contentInput.value,
-        date : null, 
+        date : new Date(), 
         id : null
       }
-      console.log(Note);
       Data.push(Note);
       return Note;
     } 
 
     //events 
-    saveBtn.addEventListener('click', getValues);
+    saveBtn.addEventListener('click', ()=> {
+      getValues();
+      list();
+      dialog.close();
+      createBtn.removeAttribute('disabled');
+    });
     //close the dialog 
-    deleteBtn.addEventListener('click', function(){
+    closeBtn.addEventListener('click', function(){
       event.preventDefault();
-      dialog.close(); 
+      dialog.close();
+      createBtn.removeAttribute('disabled');
+      container.removeChild(dialog);
     });
   }
 
   function list(){
     const listContainer = document.getElementById('list');
-   for (let item of Data){
-      const title = document.createElement('li');
-      title.innerText = item.title;
-      console.log(title);
-      listContainer.appendChild(title);
-    }
-  } list();
-
+    const lastItem = Data[Data.length -1].title;
+   /* for (let item in lastItem){
+      //console.log(lastItem);
+      console.log(item);
+    } */
+      const titles = document.createElement('li');
+      titles.innerText = lastItem;  
+      listContainer.appendChild(titles);
+    
+  }
   createBtn.addEventListener('click', newNote);
 })();
