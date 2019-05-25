@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
- <body>
+  <title>Document</title>
+</head>
+<body>
+  
+  
+
   <div id="mainContainer"> 
     <button id="createBtn">Create</button>
+    <dialog open> 
+      <form method="dialog">
+        <label for="" maxlenght="25">Title</label>
+        <input type="text" id="inputTile">
+        <label for="">Description</label>
+        <input type="text" id="description">
+        <button>Save</button>
+        <button>Delete</button>
+        <button>X</button>
+      </form>
+    </dialog>
     <h2>Notes</h2>
-   <ul id="list"></ul>
+  <ul id="list"></ul>
   </div>
   <script src="script.js"></script>
 </body>

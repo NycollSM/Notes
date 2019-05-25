@@ -3,6 +3,7 @@ html{
     font-family: $font;
 }
 dialog{
+    display: none;
     height: 80vh;
     width: 100vh;
     margin: 0 auto;
