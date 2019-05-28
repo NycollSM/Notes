@@ -14,6 +14,9 @@ input{
     width: 100%;
     display: block;
 }
+textarea{
+    resize: none;
+}
 label{
     text-align: center;
     padding: 2px;

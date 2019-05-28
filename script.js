@@ -1,15 +1,19 @@
 (function(){
-  const createBtn = document.getElementById('createBtn');
-
   const Data = [];
 
+
   function newNote(){
-    //disable button
-    createBtn.setAttribute('disabled', true);
+
     //elements
+    const dialog = document.getElementById('dialog');
     const title= document.getElementById('inputTile');
     const description = document.getElementById('description');
+    const createBtn = document.getElementById('createBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const reset = document.getElementById('resetBtn');
 
+    dialog.style.display = 'block';
 
     function getValues (){
       event.preventDefault();
@@ -35,21 +39,25 @@
       event.preventDefault();
       dialog.close();
       createBtn.removeAttribute('disabled');
-      container.removeChild(dialog);
+      dialog.style.display = 'none';
     });
+
+    //reset textarea
+    reset.addEventListener('click', function(){
+      event.preventDefault();
+      title.value= '';
+      description.value = '';
+    })
   }
 
   function list(){
     const listContainer = document.getElementById('list');
     const lastItem = Data[Data.length -1].title;
-   /* for (let item in lastItem){
-      //console.log(lastItem);
-      console.log(item);
-    } */
-      const titles = document.createElement('li');
-      titles.innerText = lastItem;  
-      listContainer.appendChild(titles);
-    
+    const titles = document.createElement('li');
+    titles.innerText = lastItem;  
+    listContainer.appendChild(titles);
+    listContainer.insertBefore(titles, listContainer.childNodes[0]);
   }
+
   createBtn.addEventListener('click', newNote);
 })();

@@ -13,15 +13,15 @@
 
   <div id="mainContainer"> 
     <button id="createBtn">Create</button>
-    <dialog open> 
+    <dialog open id="dialog"> 
       <form method="dialog">
-        <label for="" maxlenght="25">Title</label>
-        <input type="text" id="inputTile">
+        <label for="" >Title</label>
+        <textarea type="text" id="inputTile" maxlenght="25"></textarea>
         <label for="">Description</label>
-        <input type="text" id="description">
-        <button>Save</button>
-        <button>Delete</button>
-        <button>X</button>
+        <textarea type="text" id="description"></textarea>
+        <button id="saveBtn">Save</button>
+        <button id="resetBtn">Reset</button>
+        <button id="closeBtn">X</button>
       </form>
     </dialog>
     <h2>Notes</h2>
